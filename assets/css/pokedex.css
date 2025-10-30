@@ -19,8 +19,8 @@
 .water {
     background-color: #678fee;
 }
-.eletric{
-    background-color: #f7cf2e;
+.electric{
+    background-color: #f2c200;
 }
 .ice{
     background-color: #98d5d7;
@@ -41,7 +41,7 @@
     background-color: #f65687;
 }
 .dark{
-    background-color: #725847;
+    background-color: #272320;
 }
 .rock{
     background-color: #b8a137;
@@ -53,7 +53,7 @@
     background-color: #6e5896;
 }
 .steel{
-    background-color: #b9b7cf;
+    background-color: #a5a3b9;
 }
 .dragon{
     background-color: #6f38f6;
