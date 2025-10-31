@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function convertPokemontoDetalhes(pokemon) {
+        // soma total dos status
+        const totalStats = pokemon.stats.reduce((total, stat) => total + stat.value, 0);
         return `
             <section class="pokemon-detalhes-title ${pokemon.type}">
                 <div class="pokemon-infosHeader">
@@ -55,6 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span class="stat-value">${stat.value}</span>
                             </li>`).join('')}
                     </ol>
+                    <div class="stat total">
+                    <span class="stat-name">Total</span>
+                    <span class="stat-value">${totalStats}</span>
+                    </div>
                 </div>
             </section>
         `;
@@ -92,10 +98,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     const detalhesHtml = convertPokemontoDetalhes(pokemon);
                     contentDetalhes.innerHTML = detalhesHtml;
 
-                    // 🔹 Altera dinamicamente a cor da página pelo tipo do Pokémon
-                    document.body.className = pokemon.type;      // muda o body
+                    // 🔹 Altera dinamicamente as cores pelo tipo do Pokémon
+                    document.body.className = pokemon.type;
+
                     const header = document.querySelector('header');
-                    if (header) header.className = pokemon.type; // muda o header também
+                    if (header) header.className = pokemon.type;
+
+                    const section = document.getElementById('content-detalhes');
+                    if (section) {
+                        section.classList.remove(...section.classList); // limpa todas as classes atuais
+                        section.classList.add('content', pokemon.type); // adiciona as novas
+                    }
                 });
         }
     }
